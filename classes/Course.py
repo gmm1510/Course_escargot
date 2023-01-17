@@ -8,17 +8,20 @@ class Course:
     def __init__(self, liste_escargots, canvas):
         self.liste_escargots = liste_escargots
         self.canvas = canvas
-        self.vainqueur = None
+        self.partez = None
+
 
     def start(self):
-        while not self.vainqueur:
+       # print(self.vainqueur)
+        self.partez=True
+        while self.partez:
             for escargot in self.liste_escargots:
-                x_move = randint(1, 2)
+                x_move = randint(0, 2)
                 y_move = 0
 
                 if escargot.finished:
-                    self.vainqueur = escargot
-                    break
+                    print(f"{escargot.nom} a gagné")
+                    self.partez = False
                 else:
                     escargot.mouvement(self.canvas, x_move, y_move)
 
@@ -34,10 +37,8 @@ class Course:
             escargot.x = escargot.x_depart
             escargot.y = escargot.y_depart
             self.canvas.coords(escargot.canvas_image, escargot.x, escargot.y)
-        self.vainqueur = None
-
-    def get_winner(self):
-        return self.vainqueur
+            self.canvas.update()
+            escargot.finished=False
 
 
 
