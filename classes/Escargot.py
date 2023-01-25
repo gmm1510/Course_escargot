@@ -3,8 +3,6 @@ from tkinter import *
 from PIL import Image
 from PIL import ImageTk
 
-
-
 class Escargot:
     def __init__(self, nom, x, y, fichier_image):
         self.nom=nom

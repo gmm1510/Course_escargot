@@ -11,6 +11,7 @@ class Course:
         self.partez = None
 
 
+
     def start(self):
        # print(self.vainqueur)
         self.partez=True
